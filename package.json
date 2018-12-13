@@ -1,0 +1,23 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Learning Node-Complete",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moingeek/Node.git"
+  },
+  "author": "Moin Gadkari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moingeek/Node/issues"
+  },
+  "homepage": "https://github.com/moingeek/Node#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.8"
+  }
+}
