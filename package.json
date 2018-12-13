@@ -19,5 +19,8 @@
   "homepage": "https://github.com/moingeek/Node#readme",
   "devDependencies": {
     "nodemon": "^1.18.8"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
   }
 }
