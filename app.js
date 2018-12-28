@@ -33,24 +33,33 @@ app.use(shopRoutes);
 
 app.use(errorsController.get404);
 
-Product.belongsTo(User,{ constraints: true, onDelete: 'CASCADE'});
+Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 User.hasMany(Product);
 User.hasOne(Cart);
 Cart.belongsTo(User);
-Cart.belongsToMany(Product, {through: CartItem});
-Product.belongsToMany(Cart , {through: CartItem});
+Cart.belongsToMany(Product, { through: CartItem });
+Product.belongsToMany(Cart, { through: CartItem });
 
-// This is just migrations what we call in laravel.
-sequelize.sync().then(result => {
+sequelize
+  // .sync({ force: true })
+  .sync()
+  .then(result => {
     return User.findById(1);
     // console.log(result);
-}).then(user => {
-    if(!user) {
-       return User.create({name: 'Moin', email:'test@test.com'});
+  })
+  .then(user => {
+    if (!user) {
+      return User.create({ name: 'Moin', email: 'test@test.com' });
     }
     return user;
-}).then(user => {
+  })
+  .then(user => {
+    // console.log(user);
+    return user.createCart();
+  })
+  .then(cart => {
     app.listen(3000);
-}).catch(err => {
+  })
+  .catch(err => {
     console.log(err);
-});
+  });
